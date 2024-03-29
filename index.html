@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task Management Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Task Management Dashboard</h1>
+  </header>
+
+  <main>
+    <section id="task-list">
+      <h2>Tasks</h2>
+      <ul id="tasks"></ul>
+    </section>
+
+    <section id="add-task">
+      <h2>Add Task</h2>
+      <form id="task-form">
+        <label for="task-title">Title:</label>
+        <input type="text" id="task-title" name="title" required>
+
+        <label for="task-description">Description (optional):</label>
+        <textarea id="task-description" name="description"></textarea>
+
+        <label for="task-due-date">Due Date (optional):</label>
+        <input type="date" id="task-due-date" name="dueDate">
+
+        <button type="submit">Add Task</button>
+      </form>
+    </section>
+  </main>
+
+  <script src="script.js">
+    const taskList = document.getElementById('tasks');
+ const taskForm = document.getElementById('task-form');
+ const taskTitle = document.getElementById('task-title');
+ const taskDescription = document.getElementById('task-description');
+ const taskDueDate = document.getElementById('task-due-date');
+
+ let tasks = [];
+
+ // Load tasks from localStorage (if available)
+ function loadTasks() {
+  const storedTasks = localStorage.getItem('tasks');
+  if (storedTasks) {
+    tasks = JSON.parse(storedTasks);
+    renderTasks();
+  }
+ }
+
+ // Save tasks to localStorage
+ function saveTasks() {
+  localStorage.setItem('tasks', JSON.stringify(tasks));
+ }
+
+ // Render tasks to the list
+ function renderTasks() {
+  taskList.innerHTML = '';
+  tasks.forEach(task => {
+    const listItem = document.createElement('li');
+  }
+  </script>
+ </body>
+</html>
